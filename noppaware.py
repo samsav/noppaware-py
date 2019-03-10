@@ -2,21 +2,21 @@
 
 import secrets
 
-rnd = secrets.SystemRandom()
+RND = secrets.SystemRandom()
 
 with open("noppaware.txt", 'r') as fp:
-    words = {line.split()[0]: line.split()[1] for line in fp.readlines()}
+    WORDS = {line.split()[0]: line.split()[1] for line in fp.readlines()}
 
-n_phrases = 4
-phrase_length = 7
-phrases = list()
+N_PHRASES = 4
+PHRASE_LENGTH = 7
+PHRASES = list()
 
-for i in range(n_phrases):
+for i in range(N_PHRASES):
     phrase = list()
-    for j in range(phrase_length):
-        key = ''.join([str(rnd.randint(1,6)) for k in range(5)])
-        phrase.append(words[key])
-    phrases.append(phrase)
+    for j in range(PHRASE_LENGTH):
+        key = ''.join([str(RND.randint(1, 6)) for k in range(5)])
+        phrase.append(WORDS[key])
+    PHRASES.append(phrase)
 
-for phrase in phrases:
+for phrase in PHRASES:
     print(' '.join(w for w in phrase))
